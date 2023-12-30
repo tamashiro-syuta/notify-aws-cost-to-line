@@ -15,12 +15,6 @@ provider:
   region: ap-northeast-1
 
 functions:
-  first:
-    handler: first.hello
-  second:
-    handler: second.hello
-  hello:
-    handler: src/hello.handler
   costNotifier:
     handler: src/costNotifier.handler
     events:
@@ -30,6 +24,6 @@ functions:
       LINE_NOTIFY_TOKEN: ${ssm:LINE_NOTIFY_TOKEN_OF_AWS_COST}
     iamRoleStatements:
       - Effect: Allow
-        Action: 
+        Action:
           - ce:GetCostAndUsage
         Resource: '*'
